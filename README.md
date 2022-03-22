@@ -52,3 +52,7 @@ Without any options plugin throws an exception.
 [2]: https://github.com/gulpjs/gulp/tree/master/docs/writing-a-plugin
 [3]: https://mochajs.org/
 [4]: https://www.chaijs.com/
+
+## Support
+
+For supporting me, you can add an issue for bug cases or new feature requests.

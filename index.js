@@ -41,23 +41,25 @@ function pluginFunction(options) {
     });
 
     function processAnchor(element, keyword, rel, target, whiteList) {
-        if (typeof keyword === "string") {
-            var href = element.getAttribute("href");
-            if (!canExecute(element, keyword, whiteList)) {
-                return;
-            }
-
-            setAttribute(element, rel, target);
-        }
-        else if (Array.isArray(keyword)) {
-            keyword.forEach(function (k) {
-                processAnchor(element, k, rel, target, whiteList);
-            });
-        }
 
         if (!keyword) {
             setAttribute(element, rel, target);
+            return;
         }
+
+        var keywords;
+        if (typeof keyword === "string") {
+            keywords = [keyword];
+        }
+        else if (Array.isArray(keyword)) {
+            keywords = keyword;
+        }
+
+        if (!canExecute(element, keywords, whiteList)) {
+            return;
+        }
+
+        setAttribute(element, rel, target);
     }
 
     function setAttribute(element, rel, target) {
@@ -70,21 +72,19 @@ function pluginFunction(options) {
         }
     }
 
-    function canExecute(element, keyword, whiteList) {
+    function canExecute(element, keywords, whiteList) {
         var href = element.getAttribute("href");
 
+        var result = keywords.some(function (k) {
+            return href.indexOf(k) >= 0;
+        });
+
         if (!whiteList) {
-            if (href.indexOf(keyword) === -1) {
-                return false;
-            }
+            return result;
         }
         else {
-            if (href.indexOf(keyword) > -1) {
-                return false;
-            }
+            return !result;
         }
-
-        return true;
     }
 }
 

@@ -47,6 +47,7 @@ Without any options plugin throws an exception.
 | keyword | String, String[] | For searcing the anchor element href attribute value. If the href contains the keyword, the anchor will be processed. |
 | rel | String | For adding rel attribute. |
 | target | String | For adding target attribute. |
+| whiteList | boolean | For executing in white-list mode. |
 
 [1]: https://github.com/fatihtatoglu/enginaer
 [2]: https://github.com/gulpjs/gulp/tree/master/docs/writing-a-plugin

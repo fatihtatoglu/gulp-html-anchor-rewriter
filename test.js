@@ -147,5 +147,21 @@ describe("gulp-html-anchor-rewriter", function () {
                 }))
                 .pipe(assert.end(done));
         });
+
+        // it("should not re-write given keyword in white-list mode", function (done) {
+        //     src("./test/whitelist.html")
+        //         .pipe(anchor({
+        //             keyword: ["www.example.com", "image.example.com"],
+        //             rel: "nofollow",
+        //             target: "_new",
+        //             whiteList: true
+        //         }))
+        //         .pipe(assert.first(function (file) {
+        //             file.contents.toString().should.have.string("<a href=\"https://twitter.com\" rel=\"nofollow\" target=\"_new\">Twitter</a>");
+        //             file.contents.toString().should.have.string("<a href=\"https://www.example.com\">Home Example</a>");
+        //             file.contents.toString().should.have.string("<a href=\"https://www.example.com\">Home Example</a>");
+        //         }))
+        //         .pipe(assert.end(done))
+        // });
     });
 });

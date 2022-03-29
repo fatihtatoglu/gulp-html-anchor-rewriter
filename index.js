@@ -13,6 +13,8 @@ function pluginFunction(options) {
         throw new PluginError(PLUGIN_NAME, "The options are missing!");
     }
 
+    options["whiteList"] = options["whiteList"] || false;
+
     return through.obj(function (file, encoding, cb) {
 
         // ignore empty files.
@@ -32,7 +34,7 @@ function pluginFunction(options) {
         var anchors = html.querySelectorAll("a");
 
         anchors.forEach(function (element) {
-            processAnchor(element, options["keyword"], options["rel"], options["target"])
+            processAnchor(element, options["keyword"], options["rel"], options["target"], options["whiteList"])
         });
 
         file.contents = Buffer.from(html.toString());
@@ -40,10 +42,10 @@ function pluginFunction(options) {
         cb(null, file);
     });
 
-    function processAnchor(element, keyword, rel, target) {
+    function processAnchor(element, keyword, rel, target, whiteList) {
         if (typeof keyword === "string") {
             var href = element.getAttribute("href");
-            if (href.indexOf(keyword) === -1) {
+            if (!canExecute(element, keyword, whiteList)) {
                 return;
             }
 
@@ -68,6 +70,15 @@ function pluginFunction(options) {
         if (target && !element.getAttribute("target")) {
             element.setAttribute("target", target);
         }
+    }
+
+    function canExecute(element, keyword, whiteList) {
+        var href = element.getAttribute("href");
+        if (href.indexOf(keyword) === -1) {
+            return false;
+        }
+
+        return true;
     }
 }
 

@@ -15,6 +15,14 @@ function pluginFunction(options) {
 
     return through.obj(function (file, encoding, cb) {
 
+        if (options["keyword"]) {
+            var isValid = Array.isArray(options["keyword"]) || typeof options["keyword"] === "string";
+            if (!isValid) {
+                cb(new PluginError(PLUGIN_NAME, "The keyword must be string or array of the strings!", file));
+                return;
+            }
+        }
+
         // ignore empty files.
         if (file.isNull()) {
             cb();
@@ -47,12 +55,9 @@ function pluginFunction(options) {
             return;
         }
 
-        var keywords;
+        var keywords = keyword;
         if (typeof keyword === "string") {
             keywords = [keyword];
-        }
-        else if (Array.isArray(keyword)) {
-            keywords = keyword;
         }
 
         if (!canExecute(element, keywords, whiteList)) {

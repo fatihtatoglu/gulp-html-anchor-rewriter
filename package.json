@@ -1,7 +1,7 @@
     {
         "name": "gulp-html-anchor-rewriter",
         "description": "A plugin for editing anchor element in the HTML files.",
-        "version": "1.0.0",
+        "version": "1.0.1",
         "repository": {
             "type": "git",
             "url": "git+https://github.com/fatihtatoglu/gulp-html-anchor-rewriter.git"

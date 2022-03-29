@@ -13,8 +13,6 @@ function pluginFunction(options) {
         throw new PluginError(PLUGIN_NAME, "The options are missing!");
     }
 
-    options["whiteList"] = options["whiteList"] || false;
-
     return through.obj(function (file, encoding, cb) {
 
         // ignore empty files.
@@ -53,7 +51,7 @@ function pluginFunction(options) {
         }
         else if (Array.isArray(keyword)) {
             keyword.forEach(function (k) {
-                processAnchor(element, k, rel, target);
+                processAnchor(element, k, rel, target, whiteList);
             });
         }
 
@@ -74,8 +72,16 @@ function pluginFunction(options) {
 
     function canExecute(element, keyword, whiteList) {
         var href = element.getAttribute("href");
-        if (href.indexOf(keyword) === -1) {
-            return false;
+
+        if (!whiteList) {
+            if (href.indexOf(keyword) === -1) {
+                return false;
+            }
+        }
+        else {
+            if (href.indexOf(keyword) > -1) {
+                return false;
+            }
         }
 
         return true;

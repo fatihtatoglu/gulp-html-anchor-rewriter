@@ -131,5 +131,21 @@ describe("gulp-html-anchor-rewriter", function () {
                 }))
                 .pipe(assert.end(done));
         });
+
+        it("should edit multiple anchors with given keyword array", function (done) {
+            src("./test/test5.html")
+                .pipe(anchor({
+                    keyword: ["twitter.com", "instagram.com", "github.io"],
+                    rel: "nofollow"
+                }))
+                .pipe(assert.first(function (file) {
+                    file.contents.toString().should.have.string("<a href=\"https://www.twitter.com\" rel=\"nofollow\">Twitter</a>");
+                    file.contents.toString().should.have.string("<a href=\"https://www.instagram.com\" rel=\"nofollow\">Insta</a>");
+                    file.contents.toString().should.have.string("<a href=\"https://www.medium.com\" title=\"Medium with title\">Medium with title</a>");
+                    file.contents.toString().should.have.string("<a href=\"https://github.io/test\" title=\"GitHub IO\" rel=\"nofollow\">GitHub IO</a>");
+                    file.contents.toString().should.have.string("<a href=\"https://github.io/fatihtatoglu\" rel=\"nofollow\">GitHub IO</a>");
+                }))
+                .pipe(assert.end(done));
+        });
     });
 });

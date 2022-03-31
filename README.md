@@ -6,7 +6,7 @@ This is the simple plugin to re-write anchor elements such as adding new attribu
 
 While developing another gulp plugin ([1]), I have needed re-writing anchor elements for the SEO. After reading some articles, I decided develop a gulp plugin for re-writing anchor elements.
 
-[![HitCount](https://hits.dwyl.com/fatihtatoglu/gulp-html-anchor-rewriter.svg?style=flat-square&show=unique)](http://hits.dwyl.com/fatihtatoglu/gulp-html-anchor-rewriter) ![GitHub](https://img.shields.io/github/license/fatihtatoglu/enginaer) ![npm](https://img.shields.io/npm/v/gulp-html-anchor-rewriter)
+[![HitCount](https://hits.dwyl.com/fatihtatoglu/gulp-html-anchor-rewriter.svg?style=flat-square&show=unique)](http://hits.dwyl.com/fatihtatoglu/gulp-html-anchor-rewriter) ![GitHub](https://img.shields.io/github/license/fatihtatoglu/enginaer) ![npm](https://img.shields.io/npm/v/gulp-html-anchor-rewriter) [![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=fatihtatoglu_gulp-html-anchor-rewriter&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=fatihtatoglu_gulp-html-anchor-rewriter) [![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=fatihtatoglu_gulp-html-anchor-rewriter&metric=sqale_index)](https://sonarcloud.io/summary/new_code?id=fatihtatoglu_gulp-html-anchor-rewriter)
 
 ## Challenges
 

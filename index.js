@@ -13,7 +13,7 @@ function pluginFunction(options) {
         throw new PluginError(PLUGIN_NAME, "The options are missing!");
     }
 
-    return through.obj(function (file, encoding, cb) {
+    return through.obj(function (file, _encoding, cb) {
 
         if (options["keyword"]) {
             var isValid = Array.isArray(options["keyword"]) || typeof options["keyword"] === "string";

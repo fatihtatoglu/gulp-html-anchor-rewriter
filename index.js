@@ -87,9 +87,8 @@ function pluginFunction(options) {
         if (!whiteList) {
             return result;
         }
-        else {
-            return !result;
-        }
+
+        return !result;
     }
 }
 

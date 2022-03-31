@@ -71,7 +71,7 @@ describe("gulp-html-anchor-rewriter", function () {
                     rel: "nofollow"
                 }))
                 .pipe(assert.first(function (file) {
-                    file.contents.toString().should.have.string("<a href=\"https://github.com/fatihtatoglu/\" target=\"_new\" rel=\"external\"\r\n                title=\"Fatih Tatoğlu\">Fatih Tatoğlu</a>");
+                    file.contents.toString().should.have.string("<a href=\"https://github.com/fatihtatoglu/\" target=\"_new\" rel=\"external\" title=\"Fatih Tatoğlu\">Fatih Tatoğlu</a>");
                 }))
                 .pipe(assert.end(done));
         });
@@ -95,7 +95,7 @@ describe("gulp-html-anchor-rewriter", function () {
                     target: "_new"
                 }))
                 .pipe(assert.first(function (file) {
-                    file.contents.toString().should.have.string("<a href=\"https://github.com/fatihtatoglu/\" target=\"_new\" rel=\"external\"\r\n                title=\"Fatih Tatoğlu\">Fatih Tatoğlu</a>");
+                    file.contents.toString().should.have.string("<a href=\"https://github.com/fatihtatoglu/\" target=\"_new\" rel=\"external\" title=\"Fatih Tatoğlu\">Fatih Tatoğlu</a>");
                 }))
                 .pipe(assert.end(done));
         });

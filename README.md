@@ -14,7 +14,7 @@ The gulp system has dynamic and usefull plugin system. However, some times findi
 
 The gulp suggets a guideline for writing a plugin. This time, I want to follow it ([2]). In this challenge, I wrote tests for validating plugin and I have used [Mocha]([3]) and [Chai]([4]).
 
-!["NodeJS"](./docs/nodejs.png "NodeJS") !["Gulp"](./docs/gulp.png "Gulp") !["MOCHA"](./docs/mocha.png "MOCHA") !["chai"](./docs/chai.png "chai") !["GitHub Actions"](./docs/actions.png "GitHub Actions") !["SonarCloud"](./docs/sonarcloud.png "SonarCloud")
+!["NodeJS"](./docs/nodejs.png "NodeJS") !["MOCHA"](./docs/mocha.png "MOCHA") !["chai"](./docs/chai.png "chai") !["GitHub Actions"](./docs/actions.png "GitHub Actions") !["SonarCloud"](./docs/sonarcloud.png "SonarCloud")
 
 ## Installation
 
@@ -53,6 +53,15 @@ Without any options plugin throws an exception.
 [2]: https://github.com/gulpjs/gulp/tree/master/docs/writing-a-plugin
 [3]: https://mochajs.org/
 [4]: https://www.chaijs.com/
+
+## Testing
+
+For local testing, can be used unit tests.
+
+```bash
+$> npm install
+$> npm test
+```
 
 ## Support
 

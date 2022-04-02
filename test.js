@@ -68,13 +68,13 @@ describe("gulp-html-anchor-rewriter", () => {
     });
 
     describe("rel attribute", () => {
-        let options = {
+        let relOptions = {
             rel: "nofollow"
         };
 
         it("should add rel attribute to the anchor for one anchor.", (done) => {
             src("./test/test.html")
-                .pipe(anchor(options))
+                .pipe(anchor(relOptions))
                 .pipe(assert.first((file) => {
                     file.contents.toString().should.have.string("<a href=\"https://www.example.com\" rel=\"nofollow\">Example</a>");
                 }))
@@ -83,7 +83,7 @@ describe("gulp-html-anchor-rewriter", () => {
 
         it("should not add rel attribute to the anchor when a rel attribute is already existed.", (done) => {
             src("./test/test2.html")
-                .pipe(anchor(options))
+                .pipe(anchor(relOptions))
                 .pipe(assert.first((file) => {
                     file.contents.toString().should.have.string("<a href=\"https://github.com/fatihtatoglu/\" target=\"_new\" rel=\"external\" title=\"Fatih Tatoğlu\">Fatih Tatoğlu</a>");
                 }))
@@ -92,13 +92,13 @@ describe("gulp-html-anchor-rewriter", () => {
     });
 
     describe("target attribute", () => {
-        let options = {
+        let targetOptions = {
             target: "_new"
         };
 
         it("should add target attribute to the anchor.", (done) => {
             src("./test/test.html")
-                .pipe(anchor(options))
+                .pipe(anchor(targetOptions))
                 .pipe(assert.first((file) => {
                     file.contents.toString().should.have.string("<a href=\"https://www.example.com\" target=\"_new\">Example</a>");
                 }))
@@ -107,7 +107,7 @@ describe("gulp-html-anchor-rewriter", () => {
 
         it("should not add target attribute to the anchor when a rel attribute is already existed.", (done) => {
             src("./test/test2.html")
-                .pipe(anchor(options))
+                .pipe(anchor(targetOptions))
                 .pipe(assert.first((file) => {
                     file.contents.toString().should.have.string("<a href=\"https://github.com/fatihtatoglu/\" target=\"_new\" rel=\"external\" title=\"Fatih Tatoğlu\">Fatih Tatoğlu</a>");
                 }))
@@ -139,11 +139,13 @@ describe("gulp-html-anchor-rewriter", () => {
 
     describe("keyword", () => {
         it("should only edit anchor whose href matched with keyword", (done) => {
+            let options = {
+                keyword: "example.com",
+                rel: "nofollow"
+            };
+
             src("./test/test3.html")
-                .pipe(anchor({
-                    keyword: "example.com",
-                    rel: "nofollow"
-                }))
+                .pipe(anchor(options))
                 .pipe(assert.first((file) => {
                     file.contents.toString().should.have.string("<a href=\"https://www.example.com\" rel=\"nofollow\">Example</a>");
                     file.contents.toString().should.have.string("<a href=\"https://www.test.com\">Test</a>");
@@ -152,11 +154,13 @@ describe("gulp-html-anchor-rewriter", () => {
         });
 
         it("should edit multiple anchors with given keyword array", (done) => {
+            let options = {
+                keyword: ["twitter.com", "instagram.com", "github.io"],
+                rel: "nofollow"
+            };
+
             src("./test/test5.html")
-                .pipe(anchor({
-                    keyword: ["twitter.com", "instagram.com", "github.io"],
-                    rel: "nofollow"
-                }))
+                .pipe(anchor(options))
                 .pipe(assert.first((file) => {
                     file.contents.toString().should.have.string("<a href=\"https://www.twitter.com\" rel=\"nofollow\">Twitter</a>");
                     file.contents.toString().should.have.string("<a href=\"https://www.instagram.com\" rel=\"nofollow\">Insta</a>");
@@ -168,13 +172,15 @@ describe("gulp-html-anchor-rewriter", () => {
         });
 
         it("should not re-write given keyword in white-list mode", (done) => {
+            let options = {
+                keyword: "www.example.com",
+                rel: "nofollow",
+                target: "_new",
+                whiteList: true
+            };
+
             src("./test/whitelist.html")
-                .pipe(anchor({
-                    keyword: "www.example.com",
-                    rel: "nofollow",
-                    target: "_new",
-                    whiteList: true
-                }))
+                .pipe(anchor(options))
                 .pipe(assert.first((file) => {
                     file.contents.toString().should.have.string("<a href=\"https://twitter.com\" rel=\"nofollow\" target=\"_new\">Twitter</a>");
                     file.contents.toString().should.have.string("<a href=\"https://www.example.com\">Home Example</a>");
@@ -184,13 +190,15 @@ describe("gulp-html-anchor-rewriter", () => {
         });
 
         it("should not re-write given multiple keywords in white-list mode", (done) => {
+            let options = {
+                keyword: ["www.example.com", "image.example.com"],
+                rel: "nofollow",
+                target: "_new",
+                whiteList: true
+            };
+
             src("./test/whitelist.html")
-                .pipe(anchor({
-                    keyword: ["www.example.com", "image.example.com"],
-                    rel: "nofollow",
-                    target: "_new",
-                    whiteList: true
-                }))
+                .pipe(anchor(options))
                 .pipe(assert.first((file) => {
                     file.contents.toString().should.have.string("<a href=\"https://twitter.com\" rel=\"nofollow\" target=\"_new\">Twitter</a>");
                     file.contents.toString().should.have.string("<a href=\"https://www.example.com\">Home Example</a>");

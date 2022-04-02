@@ -1,6 +1,6 @@
 "use strict";
 
-const anchor = require("./index");
+const anchor = require("../index");
 
 const Vinyl = require("vinyl");
 const { src } = require("gulp");

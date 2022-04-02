@@ -8,7 +8,6 @@ While developing another gulp plugin ([1]), I have needed re-writing anchor elem
 
 [![HitCount](https://hits.dwyl.com/fatihtatoglu/gulp-html-anchor-rewriter.svg?show=unique&style=flat)](http://hits.dwyl.com/fatihtatoglu/gulp-html-anchor-rewriter) ![GitHub](https://img.shields.io/github/license/fatihtatoglu/enginaer) ![npm](https://img.shields.io/npm/v/gulp-html-anchor-rewriter) [![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=fatihtatoglu_gulp-html-anchor-rewriter&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=fatihtatoglu_gulp-html-anchor-rewriter) [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=fatihtatoglu_gulp-html-anchor-rewriter&metric=bugs)](https://sonarcloud.io/summary/new_code?id=fatihtatoglu_gulp-html-anchor-rewriter) [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=fatihtatoglu_gulp-html-anchor-rewriter&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=fatihtatoglu_gulp-html-anchor-rewriter) ![GitHub issues](https://img.shields.io/github/issues/fatihtatoglu/gulp-html-anchor-rewriter)
 
-
 ## Challenges
 
 The gulp system has dynamic and usefull plugin system. However, some times finding a plugin will be a challenge and writing a custom plugin is already a challenge.

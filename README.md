@@ -44,7 +44,7 @@ Without any options plugin throws an exception.
 
 | Name | Type | Description |
 |---|---|---|
-| keyword | String, String[] | For searcing the anchor element href attribute value. If the href contains the keyword, the anchor will be processed. |
+| keyword | String, String[] | For searching the anchor element href attribute value. If the href contains the keyword, the anchor will be processed. |
 | rel | String | For adding rel attribute. |
 | target | String | For adding target attribute. |
 | whiteList | boolean | For executing in white-list mode. |

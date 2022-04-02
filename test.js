@@ -6,7 +6,7 @@ const Vinyl = require("vinyl");
 const { src } = require("gulp");
 
 const assert = require("stream-assert");
-const should = require('chai').should();
+require('chai').should();
 
 describe("gulp-html-anchor-rewriter", () => {
 

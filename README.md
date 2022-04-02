@@ -44,10 +44,10 @@ Without any options plugin throws an exception.
 
 | Name | Type | Description |
 |---|---|---|
-| keyword | String, String[] | For searching the anchor element href attribute value. If the href contains the keyword, the anchor will be processed. |
-| rel | String | For adding rel attribute. |
-| target | String | For adding target attribute. |
-| whiteList | boolean | For executing in white-list mode. |
+| keyword | string, string[] | For searching the anchor element href attribute value. If the href contains the keyword, the anchor will be processed. |
+| rel | string | For adding rel attribute. |
+| target | string | For adding target attribute. |
+| whiteList | boolean | Indicates whether the white-list mode is enabled. |
 
 [1]: https://github.com/fatihtatoglu/enginaer
 [2]: https://github.com/gulpjs/gulp/tree/master/docs/writing-a-plugin

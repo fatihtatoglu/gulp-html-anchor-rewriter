@@ -14,7 +14,7 @@ The gulp system has dynamic and usefull plugin system. However, some times findi
 
 The gulp suggets a guideline for writing a plugin. This time, I want to follow it ([2]). In this challenge, I wrote tests for validating plugin and I have used [Mocha]([3]) and [Chai]([4]).
 
-!["NodeJS"](./docs/nodejs.png) !["Gulp"](./docs/gulp.png) !["Mocha"](./docs/mocha.png) !["Chai"](./docs/chai.png)
+!["NodeJS"](./docs/nodejs.png "NodeJS") !["Gulp"](./docs/gulp.png "Gulp") !["MOCHA"](./docs/mocha.png "MOCHA") !["chai"](./docs/chai.png "chai") !["GitHub Actions"](./docs/actions.png "GitHub Actions") !["SonarCloud"](./docs/sonarcloud.png "SonarCloud")
 
 ## Installation
 
